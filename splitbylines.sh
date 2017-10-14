@@ -1,11 +1,11 @@
 #!/bin/bash
 
-#execute o script passando como parametroo arquivo que pretende ler
-#./splitbylines.sh entrada.txt 
-#ou delimitar a quantidade de linhas com o segundo argumento
-#./splitbylines.sh entrada.txt 5000
+# execute o script passando como parametro arquivo que pretende ler
+# ./splitbylines.sh entrada.txt 
+# ou informar a quantidade de linhas com o segundo argumento
+# ./splitbylines.sh entrada.txt 5000
 
-x=0	#contador de linhas
+x=0 #contador de linhas
 f=1
 cont=500
 prefix='part_'
@@ -13,7 +13,7 @@ sufix=''
 
 if [ -z "$2" ]
   then
-    echo "No argument supplied"
+    echo "Lines by file no supplied, using 500 by default"
 else
     cont=$2
 fi
@@ -26,7 +26,7 @@ while IFS='' read -r line || [[ -n "$line" ]]; do
 
     echo $line >> $prefix$f'_'$1$sufix.txt 
 
-  	x=$(( x+1 ))
+    x=$(( x+1 ))
 
     if [[ "$x" == "$cont" ]]; then
         x=0
